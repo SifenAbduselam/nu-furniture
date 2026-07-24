@@ -57,32 +57,58 @@ export default function About() {
       </section>
 
       {/* STORY - WORKSHOP IMAGE */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-          <AnimatedSection>
-            <img 
-              src={workshopImg} 
-              alt="Our Workshop" 
-              className="rounded-2xl shadow-2xl w-full h-[550px] object-cover -ml-4 lg:-ml-12" 
-              loading="lazy"
-            />
-          </AnimatedSection>
-          <AnimatedSection delay={0.2}>
-            <p className="text-brand-orange uppercase tracking-[0.3em] text-xs mb-4 font-medium">Who We Are</p>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-brand-dark mb-6 leading-tight">
-              Crafting Beauty Since Day One
-            </h2>
-            <p className="text-brand-dark/70 text-lg leading-relaxed mb-5">
-              At NU Furniture, we create furniture that combines modern design, comfort, and durability.
-              Every piece is carefully crafted to transform your space into something beautiful and functional.
-            </p>
-            <p className="text-brand-dark/70 text-lg leading-relaxed">
-              Based in Jimma, Ethiopia, our workshop blends traditional craftsmanship with contemporary
-              aesthetics — delivering pieces that feel as good as they look.
-            </p>
-          </AnimatedSection>
+      {/* STORY - WORKSHOP IMAGE */}
+<section className="py-24 bg-white">
+  <div className="max-w-7xl mx-auto px-6">
+    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
+
+      {/* IMAGE */}
+      <AnimatedSection>
+        <div className="h-full">
+          <img 
+            src={workshopImg} 
+            alt="Our Workshop" 
+            className="rounded-2xl shadow-2xl w-full h-full min-h-[450px] object-cover"
+            loading="lazy"
+          />
         </div>
-      </section>
+      </AnimatedSection>
+
+      {/* TEXT */}
+      <AnimatedSection delay={0.2}>
+        <div className="flex flex-col justify-center h-full lg:pr-10">
+          <p className="text-brand-orange uppercase tracking-[0.3em] text-xs mb-4 font-medium">
+            Who We Are
+          </p>
+
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-brand-dark mb-6 leading-tight">
+            Crafting Beauty Since Day One
+          </h2>
+
+          <p className="text-brand-dark/70 text-lg leading-relaxed mb-5">
+            At NU Furniture, we create furniture that combines modern design,
+            comfort, and durability. Every piece is carefully crafted to
+            transform your space into something beautiful and functional.
+          </p>
+
+          <p className="text-brand-dark/70 text-lg leading-relaxed mb-5">
+            Our craftsmen focus on every detail — from selecting quality
+            materials to perfecting the final finish. We believe furniture
+            should not only fill a room but also express the personality and
+            lifestyle of the people who live there.
+          </p>
+
+          <p className="text-brand-dark/70 text-lg leading-relaxed">
+            Based in Jimma, Ethiopia, our workshop blends traditional
+            craftsmanship with contemporary aesthetics, delivering pieces
+            that feel as good as they look and are built to last for years.
+          </p>
+        </div>
+      </AnimatedSection>
+
+    </div>
+  </div>
+</section>
 
       {/* VALUES */}
       <section className="py-24 bg-brand-beige">
