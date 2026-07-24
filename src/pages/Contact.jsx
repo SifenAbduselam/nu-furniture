@@ -19,20 +19,20 @@ export default function Contact() {
 
 
   const info = [
-    { 
-      icon: <HiLocationMarker />, 
-      label: 'Visit Us', 
-      value: 'Jimma, Ethiopia' 
+    {
+      icon: <HiLocationMarker />,
+      label: 'Visit Us',
+      value: 'Jimma, Ethiopia'
     },
-    { 
-      icon: <HiPhone />, 
-      label: 'Call Us', 
+    {
+      icon: <HiPhone />,
+      label: 'Call Us',
       value: '+251 968 944 894',
       link: 'tel:+251968944894'
     },
-    { 
-      icon: <HiMail />, 
-      label: 'Email Us', 
+    {
+      icon: <HiMail />,
+      label: 'Email Us',
       value: 'nufurther@gmail.com',
       link: 'mailto:nufurther@gmail.com'
     },
@@ -40,14 +40,14 @@ export default function Contact() {
 
 
   const socials = [
-    { Icon: FaFacebookF, href: '#', label: 'Facebook' },
-    { Icon: FaInstagram, href: '#', label: 'Instagram' },
-    { Icon: FaTelegram, href: '#', label: 'Telegram' },
-    { Icon: FaTiktok, href: '#', label: 'TikTok' },
+    { Icon: FaFacebookF, href:'#', label:'Facebook' },
+    { Icon: FaInstagram, href:'#', label:'Instagram' },
+    { Icon: FaTelegram, href:'#', label:'Telegram' },
+    { Icon: FaTiktok, href:'#', label:'TikTok' },
   ];
 
 
-  const handleChange = (e) => {
+  const handleChange = (e)=>{
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -55,29 +55,32 @@ export default function Contact() {
   };
 
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async(e)=>{
     e.preventDefault();
 
     setLoading(true);
     setStatus('');
 
-    try {
+    try{
 
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch('/api/contact',{
+        method:'POST',
         headers:{
-          'Content-Type':'application/json'
+          "Content-Type":"application/json"
         },
-        body: JSON.stringify(formData)
+        body:JSON.stringify(formData)
       });
 
 
       if(!response.ok){
-        throw new Error('Failed');
+        throw new Error("Failed");
       }
 
 
-      setStatus('Message sent successfully! We will contact you soon.');
+      setStatus(
+        "Message sent successfully! We will contact you soon."
+      );
+
 
       setFormData({
         name:'',
@@ -88,13 +91,13 @@ export default function Contact() {
       });
 
 
-    } catch(error){
+    }catch(error){
 
       setStatus(
-        'Something went wrong. Please try again.'
+        "Something went wrong. Please try again."
       );
 
-    } finally {
+    }finally{
 
       setLoading(false);
 
@@ -104,253 +107,303 @@ export default function Contact() {
 
 
   return (
-    <>
+<>
+{/* HERO */}
 
-      {/* HERO */}
-      <section className="relative pt-40 pb-24 bg-brand-beige">
+<section className="relative pt-40 pb-24 bg-brand-beige">
 
-        <div className="max-w-7xl mx-auto px-6 text-center">
+<div className="max-w-7xl mx-auto px-6 text-center">
 
-          <motion.p
-            initial={{opacity:0,y:20}}
-            animate={{opacity:1,y:0}}
-            className="text-brand-orange uppercase tracking-[0.3em] text-xs mb-4 font-medium"
-          >
-            Get In Touch
-          </motion.p>
+<motion.p
+initial={{opacity:0,y:20}}
+animate={{opacity:1,y:0}}
+className="text-brand-orange uppercase tracking-[0.3em] text-xs mb-4 font-medium"
+>
+Get In Touch
+</motion.p>
 
 
-          <motion.h1
-            initial={{opacity:0,y:30}}
-            animate={{opacity:1,y:0}}
-            transition={{delay:.1}}
-            className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-brand-dark mb-6"
-          >
-            Let's Create <span className="italic text-brand-orange">Together</span>
-          </motion.h1>
+<motion.h1
+initial={{opacity:0,y:30}}
+animate={{opacity:1,y:0}}
+transition={{delay:.1}}
+className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-brand-dark mb-6"
+>
+Let's Create <span className="italic text-brand-orange">Together</span>
+</motion.h1>
 
 
-          <motion.p
-            initial={{opacity:0}}
-            animate={{opacity:1}}
-            transition={{delay:.3}}
-            className="max-w-2xl mx-auto text-brand-dark/70 text-lg"
-          >
-            Tell us about your dream furniture project and our team will help
-            bring your ideas to life.
-          </motion.p>
+<p className="max-w-2xl mx-auto text-brand-dark/70 text-lg">
+Tell us about your dream furniture project and our team will help bring your ideas to life.
+</p>
 
-        </div>
 
-      </section>
+</div>
 
+</section>
 
 
-      {/* CONTACT AREA */}
 
-      <section className="py-24 bg-white">
 
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
+{/* CONTACT SECTION */}
 
+<section className="py-24 bg-white">
 
-          {/* FORM */}
+<div className="max-w-7xl mx-auto px-6">
 
-          <AnimatedSection>
 
-            <div className="bg-brand-beige rounded-3xl p-8 md:p-10 shadow-xl">
+<div className="grid lg:grid-cols-2 gap-12 items-stretch">
 
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-brand-dark mb-8">
-                Send Us A Message
-              </h2>
 
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+{/* FORM */}
 
+<AnimatedSection>
 
-                <input
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Full Name"
-                  required
-                  className="w-full rounded-xl px-5 py-4 outline-none border border-black/10"
-                />
+<div className="bg-brand-beige rounded-3xl p-8 md:p-10 shadow-xl h-full">
 
 
-                <input
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="Phone Number"
-                  required
-                  className="w-full rounded-xl px-5 py-4 outline-none border border-black/10"
-                />
+<h2 className="font-display text-3xl md:text-4xl font-bold text-brand-dark mb-8">
+Send Us A Message
+</h2>
 
 
-                <input
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Email Address"
-                  className="w-full rounded-xl px-5 py-4 outline-none border border-black/10"
-                />
 
+<form 
+onSubmit={handleSubmit}
+className="space-y-5"
+>
 
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="w-full rounded-xl px-5 py-4 outline-none border border-black/10"
-                >
 
-                  <option>Custom Furniture</option>
-                  <option>Sofa Design</option>
-                  <option>Interior Design</option>
-                  <option>Restoration</option>
+<div className="grid md:grid-cols-2 gap-5">
 
-                </select>
 
+<input
+name="name"
+value={formData.name}
+onChange={handleChange}
+placeholder="Full Name"
+required
+className="rounded-xl px-5 py-4 border border-black/10 outline-none"
+/>
 
 
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your project..."
-                  rows="5"
-                  required
-                  className="w-full rounded-xl px-5 py-4 outline-none border border-black/10"
-                />
 
+<input
+name="phone"
+value={formData.phone}
+onChange={handleChange}
+placeholder="Phone Number"
+required
+className="rounded-xl px-5 py-4 border border-black/10 outline-none"
+/>
 
-                <button
-                  disabled={loading}
-                  className="w-full bg-brand-orange text-white py-4 rounded-xl font-semibold hover:bg-brand-dark transition"
-                >
-                  {loading ? "Sending..." : "Send Message"}
-                </button>
 
+</div>
 
-                {
-                  status &&
-                  <p className="text-center text-sm mt-4">
-                    {status}
-                  </p>
-                }
 
 
-              </form>
 
+<div className="grid md:grid-cols-2 gap-5">
 
-            </div>
 
+<input
+name="email"
+value={formData.email}
+onChange={handleChange}
+placeholder="Email Address"
+className="rounded-xl px-5 py-4 border border-black/10 outline-none"
+/>
 
-          </AnimatedSection>
 
 
+<select
+name="service"
+value={formData.service}
+onChange={handleChange}
+className="rounded-xl px-5 py-4 border border-black/10 outline-none"
+>
 
+<option>Custom Furniture</option>
+<option>Sofa Design</option>
+<option>Interior Design</option>
+<option>Restoration</option>
 
+</select>
 
-          {/* INFO + MAP */}
 
-          <AnimatedSection delay={0.2}>
+</div>
 
-            <div>
 
-              <h2 className="font-display text-4xl font-bold text-brand-dark mb-8">
-                Visit Our Workshop
-              </h2>
 
 
+<textarea
+name="message"
+value={formData.message}
+onChange={handleChange}
+placeholder="Tell us about your project..."
+rows="6"
+required
+className="w-full rounded-xl px-5 py-4 border border-black/10 outline-none"
+/>
 
-              <div className="grid gap-5">
 
-              {info.map((item,index)=>(
 
-                <div
-                  key={index}
-                  className="flex items-center gap-5 bg-brand-beige p-5 rounded-2xl"
-                >
 
-                  <div className="w-14 h-14 rounded-full bg-brand-orange text-white flex items-center justify-center text-xl">
-                    {item.icon}
-                  </div>
+<button
+disabled={loading}
+className="w-full bg-brand-orange text-white py-4 rounded-xl font-semibold hover:bg-brand-dark transition"
+>
 
-                  <div>
-                    <p className="text-xs uppercase text-brand-dark/50">
-                      {item.label}
-                    </p>
+{loading ? "Sending..." : "Send Message"}
 
-                    <p className="font-semibold text-brand-dark">
-                      {item.value}
-                    </p>
+</button>
 
-                  </div>
 
 
-                </div>
+{
+status &&
+<p className="text-center text-sm">
+{status}
+</p>
+}
 
-              ))}
 
-              </div>
 
+</form>
 
 
+</div>
 
-              {/* GOOGLE MAP */}
 
-              <div className="mt-10 rounded-3xl overflow-hidden shadow-xl">
+</AnimatedSection>
 
-                <iframe
-                  title="NU Furniture Location"
-                  src="https://www.google.com/maps?q=Jimma,Ethiopia&output=embed"
-                  width="100%"
-                  height="350"
-                  loading="lazy"
-                  className="border-0"
-                />
 
-              </div>
 
 
-            </div>
 
 
-          </AnimatedSection>
+{/* MAP */}
 
+<AnimatedSection delay={0.2}>
 
-        </div>
+<div className="h-full">
 
-      </section>
 
+<div className="rounded-3xl overflow-hidden shadow-xl h-full min-h-[650px]">
 
 
+<iframe
+title="NU Furniture Location"
+src="https://www.google.com/maps?q=Jimma,Ethiopia&output=embed"
+width="100%"
+height="100%"
+loading="lazy"
+className="border-0 min-h-[650px]"
+/>
 
-      {/* SOCIAL */}
 
-      <section className="pb-24 bg-white">
+</div>
 
-        <div className="flex justify-center gap-4">
 
-        {
-          socials.map((s,i)=>(
+</div>
 
-            <a
-              key={i}
-              href={s.href}
-              className="w-12 h-12 rounded-full bg-brand-dark text-white flex items-center justify-center hover:bg-brand-orange transition"
-            >
-              <s.Icon/>
-            </a>
 
-          ))
-        }
+</AnimatedSection>
 
-        </div>
 
-      </section>
 
+</div>
 
-    </>
+
+
+
+
+{/* CONTACT DETAILS BELOW */}
+
+<div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+{
+info.map((item,index)=>(
+
+<div
+key={index}
+className="bg-brand-beige rounded-2xl p-6 flex items-center gap-5"
+>
+
+
+<div className="w-14 h-14 rounded-full bg-brand-orange text-white flex items-center justify-center text-xl">
+
+{item.icon}
+
+</div>
+
+
+
+<div>
+
+<p className="text-xs uppercase text-brand-dark/50">
+{item.label}
+</p>
+
+
+<p className="font-semibold text-brand-dark">
+{item.value}
+</p>
+
+
+</div>
+
+
+</div>
+
+
+))
+}
+
+
+</div>
+
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+{/* SOCIAL */}
+
+<section className="pb-24 bg-white">
+
+<div className="flex justify-center gap-4">
+
+{
+socials.map((s,i)=>(
+
+<a
+key={i}
+href={s.href}
+className="w-12 h-12 rounded-full bg-brand-dark text-white flex items-center justify-center hover:bg-brand-orange transition"
+>
+
+<s.Icon/>
+
+</a>
+
+))
+}
+
+</div>
+
+</section>
+
+
+
+</>
   );
 }
