@@ -66,11 +66,11 @@ export default function About() {
       <AnimatedSection>
         <div className="h-full">
           <img 
-            src={workshopImg} 
-            alt="Our Workshop" 
-            className="rounded-2xl shadow-2xl w-full h-full min-h-[450px] object-cover"
-            loading="lazy"
-          />
+  src={workshopImg} 
+  alt="Our Workshop" 
+  className="rounded-2xl shadow-2xl w-full h-[520px] object-cover"
+  loading="lazy"
+/>
         </div>
       </AnimatedSection>
 

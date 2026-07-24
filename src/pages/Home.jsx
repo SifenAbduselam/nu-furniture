@@ -37,7 +37,7 @@ export default function Home() {
       transition={{ duration: 0.8 }}
       className="text-brand-orange uppercase tracking-[0.25em] text-[11px] md:text-sm mb-5 font-medium"
     >
-      Premium Handcrafted Furniture
+      
     </motion.p>
 
 
