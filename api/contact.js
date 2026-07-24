@@ -1,21 +1,24 @@
 export default async function handler(req, res) {
+
   if (req.method !== "POST") {
     return res.status(405).json({
-      message: "Method not allowed",
+      message: "Method not allowed"
     });
   }
 
+
   try {
+
     const {
       name,
       phone,
       email,
       service,
-      message,
+      message
     } = req.body;
 
 
-    const text = `
+    const telegramMessage = `
 🔔 New Website Inquiry
 
 👤 Name:
@@ -32,42 +35,46 @@ ${service}
 
 💬 Message:
 ${message}
-    `;
+`;
 
 
-    const response = await fetch(
+    const telegramResponse = await fetch(
       `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`,
       {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
         },
-        body: JSON.stringify({
-          chat_id: process.env.TELEGRAM_CHAT_ID,
-          text,
-        }),
+        body:JSON.stringify({
+          chat_id:process.env.TELEGRAM_CHAT_ID,
+          text:telegramMessage
+        })
       }
     );
 
 
-    if (!response.ok) {
-      throw new Error("Telegram API failed");
+    const data = await telegramResponse.json();
+
+
+    if(!data.ok){
+      throw new Error("Telegram failed");
     }
 
 
     return res.status(200).json({
-      success: true,
+      success:true
     });
 
 
-  } catch (error) {
+  } catch(error){
 
-    console.error(error);
+    console.log(error);
 
     return res.status(500).json({
       success:false,
-      error:"Failed to send message",
+      message:error.message
     });
 
   }
+
 }
