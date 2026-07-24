@@ -60,8 +60,7 @@ export default function About() {
       {/* STORY - WORKSHOP IMAGE */}
 <section className="py-24 bg-white">
   <div className="max-w-7xl mx-auto px-6">
-    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
-
+<div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
       {/* IMAGE */}
       <AnimatedSection>
         <div className="h-full">
